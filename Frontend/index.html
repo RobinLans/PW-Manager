@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>PW Manager</title>
+        <link rel="stylesheet" href="style.css" />
+        <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
+    </head>
+    <body>
+        <section class="left">
+            <div class="box">
+                <a href="#" data-target="pw" class="nav-link">Facebook</a>
+                <hr color="#489fb5" />
+                <a href="#" data-target="pw" class="nav-link">Youtube</a>
+                <hr color="#489fb5" />
+                <a href="#" data-target="pw" class="nav-link">Instagram</a>
+                <hr color="#489fb5" />
+                <a href="#" data-target="pw" class="nav-link">Twitter</a>
+                <hr color="#489fb5" />
+                <a href="#" data-target="pw" class="nav-link">Reddit</a>
+                <hr color="#489fb5" />
+                <a href="#" data-target="pw" class="nav-link">OnlyFans</a>
+                <hr color="#489fb5" />
+                <a href="#" data-target="pw" class="nav-link">Flashback</a>
+                <hr color="#489fb5" />
+                <a href="#" data-target="pw" class="nav-link">Spotify</a>
+                <hr color="#489fb5" />
+            </div>
+        </section>
+        <section class="right">
+            <div class="page animate__animated animate__fadeInUp  active" id="home">
+                <h1>PW Manager</h1>
+                <hr color="#FFA62B" />
+
+                <button class="addPw nav-link" data-target="newPw">
+                    <p>New Password</p>
+                    <p class="plus">+</p>
+                </button>
+            </div>
+
+            <div class="page animate__animated animate__fadeInUp" id="newPw">
+                <input type="text" class="name" placeholder="Name" />
+                <input type="text" class="password" placeholder="Password" />
+                <p>Or</p>
+                <button class="generate">Generate Random Password</button>
+                <div class="btnContainer">
+                    <button class="back one nav-link" data-target="newPw">
+                        Back
+                    </button>
+                    <button class="save">Save</button>
+                </div>
+            </div>
+
+            <div class="page animate__animated animate__fadeInUp" id="pw">
+                <!-- <h1>Facebook</h1>
+                <hr color="#FFA62B" />
+                <div class="myPw">
+                    <div class="value"><p>dsd7d2!diafKA923</p></div>
+                    <button class="copy"><i class="fas fa-copy"></i></button>
+                </div>
+                <div class="btnContainer">
+                    <button class="back two nav-link" data-target="newPw">
+                        Back
+                    </button>
+                    <button class="delete">Delete</button> -->
+                </div>
+            </div>
+        </section>
+
+        <script src="index.js"></script>
+        <script
+            src="https://kit.fontawesome.com/c4acbcd9a0.js"
+            crossorigin="anonymous"
+        ></script>
+    </body>
+</html>

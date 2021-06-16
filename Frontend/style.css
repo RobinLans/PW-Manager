@@ -1,0 +1,267 @@
+@import url("https://fonts.googleapis.com/css2?family=Capriola&family=Scada&display=swap");
+
+/* SCROLLBAR */
+
+.box::-webkit-scrollbar {
+    width: 15px;
+}
+
+.box::-webkit-scrollbar-track {
+    display: none;
+}
+
+.box::-webkit-scrollbar-thumb {
+    background: #16697a;
+    border-radius: 20px;
+    border: 3px solid #ede7e3;
+}
+
+.box::-webkit-scrollbar-track-piece:end {
+    margin-bottom: 50px;
+}
+
+.box::-webkit-scrollbar-track-piece:start {
+    margin-top: 50px;
+}
+
+.page {
+    display: none;
+}
+
+.active {
+    display: flex;
+}
+
+body {
+    background: #16697a;
+    display: flex;
+    overflow: hidden;
+}
+
+.left {
+    width: 40%;
+    display: flex;
+    justify-content: center;
+}
+
+.right {
+    width: 60%;
+}
+
+.box {
+    width: 339px;
+    height: 528px;
+    background: #ede7e3;
+    box-shadow: 0px 0px 20px 3px rgba(0, 0, 0, 0.25);
+    border-radius: 56px;
+    margin: 5rem 0 0 0;
+    padding-top: 1rem;
+    overflow: auto;
+}
+
+.box a {
+    font-family: Scada;
+    font-size: 43px;
+    line-height: 53px;
+    color: #16697a;
+    margin-left: 3rem;
+    text-decoration: none;
+}
+
+.box hr {
+    width: 80%;
+    height: 2px;
+}
+
+/*HOME PAGE*/
+
+#home,
+#pw {
+    flex-direction: column;
+    align-items: center;
+}
+
+#home h1,
+#pw h1 {
+    margin-top: 3rem;
+    font-family: Capriola;
+    font-size: 100px;
+    line-height: 125px;
+    color: #ede7e3;
+    z-index: 2;
+}
+
+#home hr,
+#pw hr {
+    z-index: 1;
+    position: absolute;
+    top: 153px;
+    width: 650px;
+    height: 2px;
+}
+
+button {
+    background: #ede7e3;
+    box-shadow: 0px 0px 20px 3px rgba(0, 0, 0, 0.25);
+    border-radius: 100px;
+    border: none;
+    font-family: Scada;
+    color: #16697a;
+}
+
+.addPw {
+    width: 412px;
+    height: 110px;
+    margin: 2rem auto auto auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 2.5rem;
+    padding-right: 1.5rem;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+.addPw p {
+    font-family: Scada;
+    font-size: 43px;
+    line-height: 53px;
+    color: #16697a;
+}
+
+.addPw .plus {
+    font-size: 8rem;
+    color: #16697a;
+}
+
+/*NEW PASSWORD PAGE*/
+
+#newPw {
+    flex-direction: column;
+    align-items: center;
+}
+
+input {
+    width: 450px;
+    height: 70px;
+    background: #ede7e3;
+    box-shadow: 0px 0px 20px 3px rgba(0, 0, 0, 0.25);
+    border-radius: 100px;
+    font-family: Scada;
+    font-size: 43px;
+    line-height: 53px;
+    color: #16697a;
+    padding-left: 2rem;
+    border: none;
+}
+
+input::placeholder {
+    color: #16697a;
+    opacity: 0.5;
+}
+
+.name {
+    margin-top: 5rem;
+}
+
+.password {
+    margin-top: 6.6rem;
+}
+
+#newPw p {
+    font-family: Scada;
+    font-weight: bold;
+    font-size: 35px;
+    line-height: 44px;
+    color: #ede7e3;
+    margin: 0.1rem;
+}
+
+.generate {
+    width: 494px;
+    height: 70px;
+    background: #ffa62b;
+    font-weight: bold;
+    font-size: 35px;
+    line-height: 44px;
+    color: #5a534f;
+}
+
+.btnContainer {
+    width: 494px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.btnContainer button {
+    width: 206px;
+    height: 70px;
+    background: #ede7e3;
+    box-shadow: 0px 0px 20px 3px rgba(0, 0, 0, 0.25);
+    border-radius: 100px;
+    border: none;
+    margin-top: 6.6rem;
+    font-family: Scada;
+    font-size: 43px;
+    line-height: 53px;
+    color: #16697a;
+}
+
+/*PW PAGE*/
+
+#pw hr {
+    width: 500px;
+}
+
+.myPw {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: row;
+}
+
+.value {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 475px;
+    height: 110px;
+    background: #ede7e3;
+    box-shadow: 0px 0px 20px 3px rgba(0, 0, 0, 0.25);
+    border-radius: 100px;
+    margin-right: 1rem;
+}
+
+.value p {
+    font-family: Scada;
+    font-size: 43px;
+    line-height: 53px;
+    color: #16697a;
+}
+
+.copy {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 110px;
+    height: 110px;
+    border-radius: 100px;
+    background: #ede7e3;
+    box-shadow: 0px 0px 20px 3px rgba(0, 0, 0, 0.25);
+}
+
+.copy .fa-copy {
+    font-size: 50px;
+    color: #16697a;
+}
+
+#pw .btnContainer {
+    margin-top: 3rem;
+}
+
+.delete {
+    width: 206px;
+    height: 76px;
+    font-size: 43px;
+}
