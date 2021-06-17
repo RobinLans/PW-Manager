@@ -89,15 +89,7 @@ body {
     line-height: 125px;
     color: #ede7e3;
     z-index: 2;
-}
-
-#home hr,
-#pw hr {
-    z-index: 1;
-    position: absolute;
-    top: 153px;
-    width: 650px;
-    height: 2px;
+    text-decoration: underline solid #ffa62b 8px;
 }
 
 button {
@@ -264,4 +256,62 @@ input::placeholder {
     width: 206px;
     height: 76px;
     font-size: 43px;
+}
+
+.delete:focus {
+    background-color: red;
+    color: #ede7e3;
+}
+
+.confirm {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 500px;
+    height: 250px;
+    background: #ede7e3;
+    border-radius: 56px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-left: 3rem;
+    padding-right: 3rem;
+    box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.3);
+    z-index: 10;
+}
+
+.confirm p {
+    font-family: Scada;
+    font-size: 2rem;
+    color: #16697a;
+}
+
+.confirm .btnContainer button {
+    margin: 0;
+    width: 186px;
+    height: 50px;
+    font-size: 2rem;
+    background-color: #16697a;
+    color: #ede7e3;
+    box-shadow: none;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(3px);
+    z-index: 5;
+}
+
+.hidden {
+    display: none;
+}
+
+button:active {
+    box-shadow: none;
 }

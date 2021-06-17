@@ -35,8 +35,6 @@
         <section class="right">
             <div class="page animate__animated animate__fadeInUp  active" id="home">
                 <h1>PW Manager</h1>
-                <hr color="#FFA62B" />
-
                 <button class="addPw nav-link" data-target="newPw">
                     <p>New Password</p>
                     <p class="plus">+</p>
@@ -58,7 +56,6 @@
 
             <div class="page animate__animated animate__fadeInUp" id="pw">
                 <!-- <h1>Facebook</h1>
-                <hr color="#FFA62B" />
                 <div class="myPw">
                     <div class="value"><p>dsd7d2!diafKA923</p></div>
                     <button class="copy"><i class="fas fa-copy"></i></button>
@@ -71,6 +68,16 @@
                 </div>
             </div>
         </section>
+
+        <div class="confirm hidden">
+            <p>Are you sure you want to delete this password?</p>
+            <div class="btnContainer">
+                <button class="yes">Yes</button>
+                <Button class="no">No</Button>
+            </div>
+        </div>
+
+        <div class="overlay hidden"></div>
 
         <script src="index.js"></script>
         <script
