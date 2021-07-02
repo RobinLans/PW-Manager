@@ -44,9 +44,48 @@ function backToHome() {
     }, 1000);
 }
 
-saveBtn.addEventListener("click", () => {
+generateRandomPwBtn.addEventListener("click", () => {
+    console.log("kukens");
+    passwordInput.value = randomPW(18);
+});
+
+function randomPW(length) {
+    let result = "";
+    const characters =
+        "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$€%&/?+-";
+    const charactersLength = characters.length;
+    for (let i = 0; i < length; i++) {
+        result += characters.charAt(
+            Math.floor(Math.random() * charactersLength)
+        );
+    }
+    return result;
+}
+
+saveBtn.addEventListener("click", async () => {
     if (nameInput.value.length >= 1 && passwordInput.value.length >= 1) {
+        console.log(nameInput.value, passwordInput.value);
+
+        const credentials = {
+            website: nameInput.value,
+            password: passwordInput.value,
+        };
+
+        console.log(credentials);
+
+        const response = await fetch("http://localhost:8000/api/newPass", {
+            method: "POST",
+            body: JSON.stringify(credentials),
+            headers: {
+                "Content-Type": "application/json",
+            },
+        });
+
+        const data = await response.json();
+        console.log(data);
+
         const nameTag = document.createElement("a");
+
         nameTag.classList.add("nav-link");
         nameTag.setAttribute("data-target", "pw");
         nameTag.setAttribute("href", "#");
@@ -75,10 +114,11 @@ saveBtn.addEventListener("click", () => {
     }
 });
 
-linkCointainer.addEventListener("click", (e) => {
-    console.log(e.target.innerHTML);
+linkCointainer.addEventListener("click", async (e) => {
     if (e.target.classList.contains("nav-link")) {
+        const password = await getPassword(e.target.innerHTML);
         toggleExitAnimtation();
+
         setTimeout(function () {
             newPwPage.classList.remove("active");
             homePage.classList.remove("active");
@@ -87,7 +127,7 @@ linkCointainer.addEventListener("click", (e) => {
 
             const htmlString = `<h1>${e.target.innerHTML}</h1>
             <div class="myPw">
-                <div class="value"><p>dsd7d2!diafKA923</p></div>
+                <div class="value"><p>${password}</p></div>
                 <button class="copy"><i class="fas fa-copy"></i></button>
             </div>
             <div class="btnContainer">
@@ -118,3 +158,19 @@ confirmNoBtn.addEventListener("click", () => {
     confirmWindow.classList.add("hidden");
     overlay.classList.add("hidden");
 });
+
+async function getPassword(website) {
+    const response = await fetch(`http://localhost:8000/api/${website}`, {
+        method: "POST",
+        body: "",
+        headers: {
+            "Content-Type": "application/json",
+        },
+    });
+
+    const data = await response.json();
+
+    console.log(data);
+
+    return data;
+}
