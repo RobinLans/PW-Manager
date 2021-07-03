@@ -15,9 +15,9 @@ function initiateDatabase() {
     database.defaults({ passwords: [] }).write();
 }
 
-app.get("/*", (request, response) => {
-    response.sendFile(path.resolve("../frontend", "index.html"));
-});
+// app.get("/*", (request, response) => {
+//     response.sendFile(path.resolve("../frontend", "index.html"));
+// });
 
 app.post("/api/newPass", (request, response) => {
     const credentials = request.body;
@@ -38,6 +38,22 @@ app.post("/api/:website", (request, response) => {
 
     if (findPass) response.json(findPass.password);
     else response.json("Failure");
+});
+
+app.get("/api/passwords", (request, response) => {
+    const allPassword = database.get("passwords").value();
+    response.json(allPassword);
+});
+
+app.delete("/api/deletePassword/:website", (request, response) => {
+    const websiteToDelete = request.params.website;
+
+    const deletePassword = database
+        .get("passwords")
+        .remove({ website: websiteToDelete })
+        .write();
+
+    if (deletePassword) response.json("Passwords successfully removed");
 });
 
 app.listen("8000", () => {

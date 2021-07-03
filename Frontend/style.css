@@ -36,16 +36,19 @@ body {
     background: #16697a;
     display: flex;
     overflow: hidden;
+    height: 100vh;
 }
 
 .left {
     width: 40%;
+    height: 100vh;
     display: flex;
     justify-content: center;
 }
 
 .right {
     width: 60%;
+    height: 100vh;
 }
 
 .box {
@@ -54,7 +57,8 @@ body {
     background: #ede7e3;
     box-shadow: 0px 0px 20px 3px rgba(0, 0, 0, 0.25);
     border-radius: 56px;
-    margin: 5rem 0 0 0;
+    /* margin: 5rem 0 0 0; */
+    margin: auto;
     padding-top: 1rem;
     overflow: auto;
 }
@@ -75,16 +79,16 @@ body {
 
 /*HOME PAGE*/
 
-#home,
-#pw {
+#home {
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+    height: 100%;
 }
 
-#home h1,
-#pw h1 {
-    margin-top: 3rem;
+#home h1 {
     font-family: Capriola;
+    margin: 17% auto 0 auto;
     font-size: 100px;
     line-height: 125px;
     color: #ede7e3;
@@ -100,11 +104,10 @@ button {
     font-family: Scada;
     color: #16697a;
 }
-
 .addPw {
     width: 412px;
     height: 110px;
-    margin: 2rem auto auto auto;
+    margin: 6rem auto auto auto;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -133,6 +136,8 @@ button:hover {
 #newPw {
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+    height: 100vh;
 }
 
 input {
@@ -152,10 +157,6 @@ input {
 input::placeholder {
     color: #16697a;
     opacity: 0.5;
-}
-
-.name {
-    margin-top: 5rem;
 }
 
 .password {
@@ -203,14 +204,32 @@ input::placeholder {
 
 /*PW PAGE*/
 
+#pw {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+#pw h1 {
+    font-family: Capriola;
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 100px;
+    line-height: 125px;
+    color: #ede7e3;
+    z-index: 2;
+    text-decoration: underline solid #ffa62b 8px;
+}
+
 #pw hr {
     width: 500px;
 }
 
 .myPw {
-    margin-top: 2rem;
     display: flex;
     flex-direction: row;
+    margin: 7rem auto 8rem auto;
 }
 
 .value {
@@ -248,8 +267,22 @@ input::placeholder {
     color: #16697a;
 }
 
-#pw .btnContainer {
-    margin-top: 3rem;
+.hiddenCopy {
+    opacity: 0;
+}
+
+#copied {
+    position: absolute;
+    top: 380px;
+    left: 285px;
+    font-family: Scada;
+    font-size: 23px;
+    color: #ede7e3;
+    transition: opacity 0.5s ease;
+}
+
+#pw .btnContainer button {
+    margin-top: 0;
 }
 
 .delete {
@@ -314,4 +347,10 @@ input::placeholder {
 
 button:active {
     box-shadow: none;
+}
+
+.confirm button:focus {
+    background-color: #ede7e3;
+    color: #16697a;
+    border: solid 2px #16697a;
 }

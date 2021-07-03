@@ -8,7 +8,6 @@ const newPasswordBtn = document.querySelector(".addPw");
 const backOneBtn = document.querySelector(".one");
 const saveBtn = document.querySelector(".save");
 const generateRandomPwBtn = document.querySelector(".generate");
-const copyBtn = document.querySelector(".copy");
 const confirmYesBtn = document.querySelector(".yes");
 const confirmNoBtn = document.querySelector(".no");
 
@@ -21,7 +20,32 @@ const linkCointainer = document.querySelector(".box");
 const confirmWindow = document.querySelector(".confirm");
 const overlay = document.querySelector(".overlay");
 
+async function fetchPasswords() {
+    const response = await fetch("http://localhost:8000/api/passwords");
+    const data = await response.json();
+    console.log(data);
+
+    populateSidebar(data);
+}
+
+fetchPasswords();
+
+function populateSidebar(passwordsArr) {
+    for (const website of passwordsArr) {
+        console.log(website.website);
+        const htmlString = `<a href="#" data-target="pw" class="nav-link">${website.website}</a>
+        <hr color="#489fb5" />`;
+
+        linkCointainer.innerHTML += htmlString;
+    }
+}
+
 newPasswordBtn.addEventListener("click", () => {
+    nameInput.value = "";
+    passwordInput.value = "";
+    nameInput.setAttribute("placeholder", "Name");
+    passwordInput.setAttribute("placeholder", "Password");
+
     document.querySelector(".plus").classList.add("fa-spin");
     toggleExitAnimtation();
     setTimeout(function () {
@@ -125,20 +149,39 @@ linkCointainer.addEventListener("click", async (e) => {
             passwordPage.classList.add("active");
             toggleExitAnimtation();
 
-            const htmlString = `<h1>${e.target.innerHTML}</h1>
+            const htmlString = `<h1 id="websiteName">${e.target.innerHTML}</h1>
             <div class="myPw">
-                <div class="value"><p>${password}</p></div>
+                <div class="value"><p id="myPass">${password}</p></div>
                 <button class="copy"><i class="fas fa-copy"></i></button>
             </div>
+            <p class="hiddenCopy" id="copied">Copied!</p>
             <div class="btnContainer">
                 <button class="back two nav-link" data-target="newPw">
                     Back
                 </button>
                 <button class="delete">Delete</button>`;
             passwordPage.innerHTML = htmlString;
+            const copyBtn = document.querySelector(".copy");
             const backTwoBtn = document.querySelector(".two");
             backTwoBtn.addEventListener("click", backToHome);
             const deleteBtn = document.querySelector(".delete");
+
+            copyBtn.addEventListener("click", () => {
+                const textToCopy = document.getElementById("myPass").innerText;
+                const elem = document.createElement("textarea");
+                document.body.appendChild(elem);
+                elem.value = textToCopy;
+                elem.select();
+                document.execCommand("copy");
+                document.body.removeChild(elem);
+
+                const copiedText = document.querySelector("#copied");
+                copiedText.classList.remove("hiddenCopy");
+
+                setTimeout(() => {
+                    copiedText.classList.add("hiddenCopy");
+                }, 1000);
+            });
 
             deleteBtn.addEventListener("click", () => {
                 confirmWindow.classList.remove("hidden");
@@ -157,6 +200,25 @@ function toggleExitAnimtation() {
 confirmNoBtn.addEventListener("click", () => {
     confirmWindow.classList.add("hidden");
     overlay.classList.add("hidden");
+});
+
+confirmYesBtn.addEventListener("click", async () => {
+    const website = document.querySelector("#websiteName").innerText;
+
+    const response = await fetch(
+        `http://localhost:8000/api/deletePassword/${website}`,
+        {
+            method: "DELETE",
+            body: "",
+            headers: {
+                "Content-Type": "application/json",
+            },
+        }
+    );
+    const data = await response.json();
+    if (data) {
+        location.href = "http://localhost:8000";
+    }
 });
 
 async function getPassword(website) {
