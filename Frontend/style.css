@@ -271,14 +271,23 @@ input::placeholder {
     opacity: 0;
 }
 
+.copyBox {
+    position: fixed;
+    left: 43%;
+    background-color: #ede7e3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 3rem;
+    width: 10rem;
+    border-radius: 0.5rem;
+    transition: opacity 0.5s ease;
+}
+
 #copied {
-    position: absolute;
-    top: 380px;
-    left: 285px;
     font-family: Scada;
     font-size: 23px;
-    color: #ede7e3;
-    transition: opacity 0.5s ease;
+    color: #16697a;
 }
 
 #pw .btnContainer button {

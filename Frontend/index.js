@@ -154,7 +154,6 @@ linkCointainer.addEventListener("click", async (e) => {
                 <div class="value"><p id="myPass">${password}</p></div>
                 <button class="copy"><i class="fas fa-copy"></i></button>
             </div>
-            <p class="hiddenCopy" id="copied">Copied!</p>
             <div class="btnContainer">
                 <button class="back two nav-link" data-target="newPw">
                     Back
@@ -175,11 +174,11 @@ linkCointainer.addEventListener("click", async (e) => {
                 document.execCommand("copy");
                 document.body.removeChild(elem);
 
-                const copiedText = document.querySelector("#copied");
-                copiedText.classList.remove("hiddenCopy");
+                const copyBox = document.querySelector(".copyBox");
+                copyBox.classList.remove("hiddenCopy");
 
                 setTimeout(() => {
-                    copiedText.classList.add("hiddenCopy");
+                    copyBox.classList.add("hiddenCopy");
                 }, 1000);
             });
 
