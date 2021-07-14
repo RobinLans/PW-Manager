@@ -69,7 +69,6 @@ function backToHome() {
 }
 
 generateRandomPwBtn.addEventListener("click", () => {
-    console.log("kukens");
     passwordInput.value = randomPW(18);
 });
 
@@ -155,7 +154,7 @@ linkCointainer.addEventListener("click", async (e) => {
                 <button class="copy"><i class="fas fa-copy"></i></button>
             </div>
             <div class="btnContainer">
-                <button class="back two nav-link" data-target="newPw">
+                <button class="back two" data-target="newPw">
                     Back
                 </button>
                 <button class="delete">Delete</button>`;
@@ -199,6 +198,13 @@ function toggleExitAnimtation() {
 confirmNoBtn.addEventListener("click", () => {
     confirmWindow.classList.add("hidden");
     overlay.classList.add("hidden");
+});
+
+document.body.addEventListener("click", (e) => {
+    if (e.target.classList.contains("overlay")) {
+        confirmWindow.classList.add("hidden");
+        overlay.classList.add("hidden");
+    }
 });
 
 confirmYesBtn.addEventListener("click", async () => {
